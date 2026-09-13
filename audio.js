@@ -245,7 +245,7 @@ class SoundEngine {
             { f: G4, d: 0.6,  p: 0.7 },
             { f: F4, d: 1.0,  p: 1.2 },
 
-            // Happy Birthday dear Sumiya
+            // Happy Birthday dear Sumaiya
             { f: C4, d: 0.35, p: 0.4 },
             { f: C4, d: 0.25, p: 0.3 },
             { f: C5, d: 0.6,  p: 0.7 },

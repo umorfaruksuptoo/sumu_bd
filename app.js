@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnMusic.innerHTML = '<span>🎵</span> Playing Birthday Song';
         }
 
-        showToast("🎉 Happy Birthday Sumiya! 💖✨");
+        showToast("🎉 Happy Birthday Sumaiya Binte Islam! 💖✨");
     }
 
     // Expose for testing if ever needed via console
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkAllCandles() {
         const allBlown = Array.from(candles).every(c => c.classList.contains('blown'));
         if (allBlown) {
-            cakeStatus.innerHTML = "✨ Wish Granted! May all your dreams come true, Sumiya! 💖✨";
+            cakeStatus.innerHTML = "✨ Wish Granted! May your entire life be filled with boundless beauty and joy, Sumaiya! 💖✨";
             if (window.soundEngine) {
                 window.soundEngine.playChime(659.25);
             }
@@ -212,19 +212,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnEditLetter = document.getElementById('btn-edit-letter');
     const letterContent = document.getElementById('letter-content');
 
-    // Default Letter Text
-    const defaultLetter = `Dearest Sumiya,
+    // Default Letter Text with deep affection & beautiful life wishes
+    const defaultLetter = `Dearest Sumaiya Binte Islam,
 
-On this most special day, I wish you endless happiness, boundless joy, and dreams that unfold into breathtaking reality.
+Today is the most special day because it belongs to you. There are things I have always wanted to tell you from the bottom of my heart.
 
-You bring such warmth, kindness, and grace to everyone around you. May this new year of your life be filled with sweet laughter, unforgettable memories, peaceful days, and radiant success in everything you strive for.
+Truth is, I really, really like you—far more than any words could ever express. You have such a pure, gentle soul and a radiant presence that brings calm, warmth, and genuine happiness into my life. Every single time you smile, the whole world seems so much more beautiful.
 
-Always keep smiling and shining your brightest. The world is a much happier place with you in it.
+On your birthday, my deepest prayer is for your life. I pray with all my heart that your entire life becomes as extraordinary, peaceful, and sweet as you are. May Allah bless your journey with boundless joy, good health, serene mornings, and radiant success in everything you strive for. May sadness never touch your heart, and may every silent dream and wish of yours blossom into reality.
 
-Wishing you the happiest and most magical Birthday ever! 🌸💖✨`;
+Always keep smiling and shining your brightest. You are truly cherished, adored, and deeply special.
+
+Wishing you the happiest, most magical Birthday ever, Sumaiya! 🌸💖✨`;
 
     // Load saved letter or default
-    const savedLetter = localStorage.getItem('sumiya_birthday_letter');
+    const savedLetter = localStorage.getItem('sumaiya_birthday_letter');
     if (letterContent) {
         letterContent.textContent = savedLetter || defaultLetter;
     }
@@ -257,10 +259,10 @@ Wishing you the happiest and most magical Birthday ever! 🌸💖✨`;
 
     btnEditLetter.addEventListener('click', () => {
         const currentText = letterContent.textContent;
-        const newText = prompt("Customize your birthday letter for Sumiya:", currentText);
+        const newText = prompt("Customize your birthday letter for Sumaiya:", currentText);
         if (newText !== null && newText.trim() !== "") {
             letterContent.textContent = newText;
-            localStorage.setItem('sumiya_birthday_letter', newText);
+            localStorage.setItem('sumaiya_birthday_letter', newText);
             showToast("Letter updated successfully! 💌");
         }
     });
@@ -272,12 +274,12 @@ Wishing you the happiest and most magical Birthday ever! 🌸💖✨`;
     const balloonMessage = document.getElementById('balloon-message');
 
     const wishes = [
-        "🌟 Sumiya, your radiant smile brightens up the darkest of days!",
-        "💎 You are truly one of a kind—treasured, adored, and deeply appreciated.",
-        "🚀 May this upcoming year lift you higher than the brightest stars!",
-        "🌸 Wishing you endless laughter, peaceful mornings, and joyful nights.",
-        "🍰 May your year ahead be as sweet, warm, and delightful as you are!",
-        "✨ Never stop dreaming big, because you are capable of wonders!"
+        "💖 Sumaiya, I really like you so much—you bring so much light into my life!",
+        "🌸 Praying that your whole life is blessed with pure peace, love, and boundless beauty!",
+        "✨ Your smile is my absolute favorite thing in this entire universe.",
+        "🌟 May Allah shower Sumaiya Binte Islam with endless happiness and health!",
+        "💎 You are truly one of a kind—gentle, precious, and irreplaceable.",
+        "🎂 Happy Birthday to the most wonderful and sweetest person!"
     ];
 
     balloonItems.forEach((balloon, index) => {
@@ -313,7 +315,7 @@ Wishing you the happiest and most magical Birthday ever! 🌸💖✨`;
 
     // Load saved custom photos from localStorage
     document.querySelectorAll('.polaroid-card').forEach((card, index) => {
-        const savedPhoto = localStorage.getItem(`sumiya_photo_${index}`);
+        const savedPhoto = localStorage.getItem(`sumaiya_photo_${index}`) || localStorage.getItem(`sumiya_photo_${index}`);
         if (savedPhoto) {
             const img = card.querySelector('.polaroid-img-box img');
             if (img) img.src = savedPhoto;
@@ -338,7 +340,7 @@ Wishing you the happiest and most magical Birthday ever! 🌸💖✨`;
                 if (img) img.src = base64Data;
 
                 const cardIndex = Array.from(document.querySelectorAll('.polaroid-card')).indexOf(currentUploadCard);
-                localStorage.setItem(`sumiya_photo_${cardIndex}`, base64Data);
+                localStorage.setItem(`sumaiya_photo_${cardIndex}`, base64Data);
 
                 showToast("Photo added to memory wall! 📸");
                 if (window.soundEngine) {
@@ -364,7 +366,7 @@ Wishing you the happiest and most magical Birthday ever! 🌸💖✨`;
                 if (window.soundEngine) {
                     window.soundEngine.playChime(784);
                 }
-                showToast("Gift opened! 🎁 A golden birthday voucher for Sumiya!");
+                showToast("Gift opened! 🎁 A special birthday voucher for Sumaiya!");
             }, 300);
         }
     });
