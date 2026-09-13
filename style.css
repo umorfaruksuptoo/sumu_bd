@@ -988,192 +988,136 @@ html, body {
 }
 
 /* =========================================
-   POLAROID MEMORY WALL
+   HEARTFELT TRIBUTE CARDS (Meaningful Reflections)
    ========================================= */
-.memories-section {
-    margin-bottom: 70px;
+.tribute-section {
+    margin-bottom: 60px;
 }
 
-.memories-grid {
+.tribute-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    padding: 20px 10px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 10px 0;
 }
 
-.polaroid-card {
-    background: #ffffff;
-    padding: 14px 14px 22px 14px;
-    border-radius: 4px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-    transform: rotate(var(--rot, 0deg));
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.tribute-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    padding: 30px 24px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
     position: relative;
-    cursor: pointer;
-}
-.polaroid-card:hover {
-    transform: rotate(0deg) translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 45px rgba(255, 94, 142, 0.35);
-    z-index: 20;
-}
-
-.polaroid-tape {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 24px;
-    background: rgba(255, 240, 180, 0.65);
-    border: 1px dashed rgba(200, 180, 100, 0.4);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.polaroid-img-box {
-    width: 100%;
-    height: 230px;
-    background: #f1f2f6;
-    border-radius: 2px;
     overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.polaroid-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.polaroid-card:hover .polaroid-img-box img {
-    transform: scale(1.06);
-}
-
-.polaroid-caption {
-    font-family: var(--font-script);
-    font-size: 1.45rem;
-    color: #333333;
-    text-align: center;
-    margin-top: 14px;
-    font-weight: 700;
-}
-
-.polaroid-upload-btn {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.2s ease, background 0.2s ease;
+    text-align: left;
 }
-.polaroid-card:hover .polaroid-upload-btn {
-    opacity: 1;
+
+.tribute-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-pink), var(--accent-gold), transparent);
 }
-.polaroid-upload-btn:hover {
-    background: var(--accent-pink);
+
+.tribute-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 209, 102, 0.45);
+    box-shadow: 0 20px 45px rgba(255, 94, 142, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tribute-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+.tribute-title {
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    letter-spacing: 0.3px;
+}
+
+.tribute-text {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: var(--text-muted);
 }
 
 /* =========================================
-   SURPRISE GIFT BOX
+   LIFETIME PRAYER & BLESSING CARD
    ========================================= */
-.gift-section {
-    text-align: center;
+.prayer-section {
     margin-bottom: 70px;
 }
 
-.gift-box-container {
-    display: inline-block;
-    cursor: pointer;
+.lifetime-prayer-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 209, 102, 0.08) 100%);
+    border: 1px solid rgba(255, 209, 102, 0.4);
+    border-radius: 24px;
+    padding: 42px 30px;
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 209, 102, 0.15);
     position: relative;
-    margin: 20px 0;
-    perspective: 800px;
+    overflow: hidden;
 }
 
-.gift-box {
-    width: 130px;
-    height: 130px;
-    background: linear-gradient(135deg, #ff5e8e, #ff8eb4);
-    border-radius: 16px;
-    position: relative;
-    box-shadow: 0 15px 40px rgba(255, 94, 142, 0.5);
-    transition: transform 0.3s ease;
-}
-.gift-box:hover {
-    transform: scale(1.08) rotate(3deg);
-}
-
-/* Gift ribbon */
-.gift-ribbon-v {
+.lifetime-prayer-card::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 22px;
-    height: 100%;
-    background: #ffd166;
-    box-shadow: 0 0 10px rgba(255, 209, 102, 0.4);
-}
-.gift-ribbon-h {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 22px;
-    background: #ffd166;
-    box-shadow: 0 0 10px rgba(255, 209, 102, 0.4);
+    width: 280px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
 }
 
-.gift-bow {
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2.4rem;
-    animation: bowWiggle 2s infinite ease-in-out;
-}
-
-@keyframes bowWiggle {
-    0%, 100% { transform: translateX(-50%) rotate(0deg); }
-    50% { transform: translateX(-50%) rotate(8deg); }
-}
-
-.gift-opened-reward {
-    background: var(--glass-bg);
-    border: 1px solid var(--accent-gold);
-    border-radius: 20px;
-    padding: 24px 30px;
-    max-width: 520px;
-    margin: 20px auto 0;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 15px 45px rgba(255, 209, 102, 0.25);
-    display: none;
-    animation: fadeInSlide 0.5s ease forwards;
-}
-
-.reward-title {
-    font-size: 1.4rem;
-    font-weight: 800;
+.prayer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 209, 102, 0.15);
+    border: 1px solid rgba(255, 209, 102, 0.4);
+    padding: 8px 22px;
+    border-radius: 30px;
     color: var(--accent-gold);
-    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.reward-desc {
-    color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.6;
+.prayer-title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 40%, #ffd166 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.prayer-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.88);
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* =========================================
@@ -1411,36 +1355,38 @@ html, body {
         padding: 12px 14px;
         width: 95%;
     }
-    .memories-grid {
+    .tribute-grid {
         grid-template-columns: 1fr;
-        max-width: 290px;
+        max-width: 320px;
         margin: 0 auto;
-        gap: 22px;
+        gap: 18px;
     }
-    .polaroid-card {
-        padding: 12px 12px 18px 12px;
+    .tribute-card {
+        padding: 22px 18px;
+        border-radius: 18px;
     }
-    .polaroid-img-box {
-        height: 200px;
+    .tribute-icon {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
     }
-    .polaroid-upload-btn {
-        opacity: 0.85; /* Always visible and tappable on touchscreens */
-        width: 36px;
-        height: 36px;
-    }
-    .gift-box {
-        width: 105px;
-        height: 105px;
-    }
-    .gift-opened-reward {
-        padding: 18px 14px;
-        width: 95%;
-    }
-    .reward-title {
+    .tribute-title {
         font-size: 1.15rem;
     }
-    .reward-desc {
-        font-size: 0.88rem;
+    .tribute-text {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+    .lifetime-prayer-card {
+        padding: 28px 18px;
+        border-radius: 20px;
+        width: 95%;
+    }
+    .prayer-title {
+        font-size: 1.35rem;
+    }
+    .prayer-body {
+        font-size: 0.95rem;
+        line-height: 1.75;
     }
     .celebration-footer {
         padding: 30px 12px 25px;

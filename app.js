@@ -307,68 +307,24 @@ Wishing you the happiest, most magical Birthday ever, Sumaiya! 🌸💖✨`;
     });
 
     // =========================================
-    // POLAROID MEMORY WALL (With Photo Upload)
     // =========================================
-    const polaroidUploadBtns = document.querySelectorAll('.polaroid-upload-btn');
-    const photoFileInput = document.getElementById('photo-file-input');
-    let currentUploadCard = null;
-
-    // Load saved custom photos from localStorage
-    document.querySelectorAll('.polaroid-card').forEach((card, index) => {
-        const savedPhoto = localStorage.getItem(`sumaiya_photo_${index}`) || localStorage.getItem(`sumiya_photo_${index}`);
-        if (savedPhoto) {
-            const img = card.querySelector('.polaroid-img-box img');
-            if (img) img.src = savedPhoto;
-        }
-    });
-
-    polaroidUploadBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentUploadCard = btn.closest('.polaroid-card');
-            photoFileInput.click();
-        });
-    });
-
-    photoFileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file && currentUploadCard) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const base64Data = event.target.result;
-                const img = currentUploadCard.querySelector('.polaroid-img-box img');
-                if (img) img.src = base64Data;
-
-                const cardIndex = Array.from(document.querySelectorAll('.polaroid-card')).indexOf(currentUploadCard);
-                localStorage.setItem(`sumaiya_photo_${cardIndex}`, base64Data);
-
-                showToast("Photo added to memory wall! 📸");
-                if (window.soundEngine) {
-                    window.soundEngine.playChime(600);
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
+    // HEARTFELT TRIBUTE CARDS INTERACTION
     // =========================================
-    // MYSTERY GIFT BOX
-    // =========================================
-    const giftBox = document.getElementById('gift-box');
-    const giftReward = document.getElementById('gift-reward');
+    const tributeCards = document.querySelectorAll('.tribute-card');
+    const chimeNotes = [523.25, 587.33, 659.25, 783.99]; // Gentle melodic chimes
 
-    giftBox.addEventListener('click', () => {
-        if (giftReward.style.display !== 'block') {
-            giftBox.style.transform = 'scale(1.15) rotate(10deg)';
+    tributeCards.forEach((card, idx) => {
+        card.addEventListener('click', () => {
+            card.style.transform = 'scale(1.03) translateY(-4px)';
+            card.style.borderColor = '#ffd166';
+            if (window.soundEngine) {
+                window.soundEngine.playChime(chimeNotes[idx % chimeNotes.length]);
+            }
             setTimeout(() => {
-                giftBox.style.transform = 'scale(1)';
-                giftReward.style.display = 'block';
-                if (window.soundEngine) {
-                    window.soundEngine.playChime(784);
-                }
-                showToast("Gift opened! 🎁 A special birthday voucher for Sumaiya!");
-            }, 300);
-        }
+                card.style.transform = '';
+                card.style.borderColor = '';
+            }, 400);
+        });
     });
 
     // =========================================
