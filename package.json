@@ -1,0 +1,20 @@
+{
+  "name": "happy-birthday-sumiya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A magical, interactive birthday website crafted for Sumiya with live midnight countdown, fireworks, 3D cake, and memory cards.",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "build": "echo 'Static assets ready for deployment'"
+  },
+  "keywords": [
+    "birthday",
+    "sumiya",
+    "celebration",
+    "countdown",
+    "fireworks"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
