@@ -22,21 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const elMinutes = document.getElementById('minutes');
     const elSeconds = document.getElementById('seconds');
 
-    // Calculate Midnight Target Time (12:00 AM tonight - Sept 14, 2026)
+    // Calculate Midnight Target Time (12:00 AM tonight - Sept 14, 2026 GMT+6 Bangladesh Time)
     function getTargetMidnight() {
-        const now = new Date();
-        const birthdayMidnight = new Date(2026, 8, 14, 0, 0, 0, 0); // Sept 14, 2026 midnight local
-        const endOfBirthday = new Date(2026, 8, 14, 23, 59, 59, 999);
+        const now = Date.now();
+        // Exact Bangladesh Standard Time (+06:00) midnight
+        const targetBangladesh = new Date('2026-09-14T00:00:00+06:00').getTime();
+        const endOfBirthday = new Date('2026-09-14T23:59:59+06:00').getTime();
 
-        if (now < birthdayMidnight) {
-            return birthdayMidnight.getTime();
+        if (now < targetBangladesh) {
+            return targetBangladesh;
         } else if (now <= endOfBirthday) {
             // Already her birthday! Target has passed, celebration will trigger immediately
-            return birthdayMidnight.getTime();
+            return targetBangladesh;
         }
 
         // Fallback for future dates: tonight midnight
-        const target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+        const target = new Date();
+        target.setHours(24, 0, 0, 0);
         return target.getTime();
     }
 
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // COUNTDOWN LOGIC
     // =========================================
     function updateCountdown() {
-        const now = new Date().getTime();
+        const now = Date.now();
         const diff = targetTime - now;
 
         if (diff <= 0) {
@@ -60,9 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const totalSeconds = Math.floor(diff / 1000);
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
 
         if (elHours) elHours.textContent = String(hours).padStart(2, '0');
         if (elMinutes) elMinutes.textContent = String(minutes).padStart(2, '0');
