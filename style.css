@@ -1126,37 +1126,251 @@ html, body {
 }
 
 /* Media Queries for Mobile Screens */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .top-nav {
-        padding: 12px 16px;
+        padding: 10px 14px;
+    }
+    .nav-brand {
+        font-size: 0.95rem;
+        gap: 6px;
     }
     .nav-brand span:last-child {
         display: none;
     }
+    .nav-actions {
+        gap: 6px;
+    }
+    .btn-nav {
+        padding: 6px 11px;
+        font-size: 0.76rem;
+        border-radius: 20px;
+        gap: 5px;
+    }
+    #countdown-section {
+        padding: 24px 12px;
+        min-height: calc(100vh - 65px);
+    }
+    .countdown-badge {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+        margin-bottom: 16px;
+    }
+    .hero-title {
+        font-size: clamp(1.85rem, 7.5vw, 2.7rem);
+        margin-bottom: 12px;
+    }
+    .hero-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 25px;
+        padding: 0 4px;
+    }
     .timer-container {
-        gap: 10px;
+        gap: 8px;
+        margin-bottom: 24px;
+        width: 100%;
+        max-width: 380px;
     }
     .timer-box {
-        min-width: 75px;
-        padding: 14px 10px;
+        min-width: 68px;
+        max-width: 90px;
+        padding: 12px 6px;
         border-radius: 14px;
+        flex: 1;
+    }
+    .timer-value {
+        font-size: clamp(1.8rem, 7vw, 2.3rem);
+        margin-bottom: 4px;
+    }
+    .timer-label {
+        font-size: 0.62rem;
+        letter-spacing: 1px;
     }
     .timer-separator {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
     }
-    .cake-tier.tier-bottom { width: 220px; }
-    .cake-tier.tier-mid { width: 160px; }
-    .cake-tier.tier-top { width: 110px; }
-    .cake-plate { width: 260px; }
-    .envelope { width: 280px; height: 190px; }
+    #celebration-section {
+        padding: 15px 10px 60px;
+    }
+    .celebration-header {
+        margin-bottom: 28px;
+        padding: 10px 4px;
+    }
+    .celebration-badge {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+        margin-bottom: 14px;
+    }
+    .grand-title {
+        font-size: clamp(2.1rem, 8.5vw, 3.2rem);
+        margin-bottom: 10px;
+    }
+    .grand-subtitle {
+        font-size: 1.15rem;
+    }
+    .cake-stage-card {
+        padding: 24px 10px;
+        border-radius: 20px;
+        margin-bottom: 35px;
+    }
+    .cake-container {
+        height: 220px;
+        margin: 10px 0 20px;
+    }
+    .candles-row {
+        gap: 12px;
+    }
+    .candle {
+        width: 11px;
+        height: 38px;
+    }
+    .flame {
+        width: 12px;
+        height: 18px;
+        top: -18px;
+    }
+    .cake-tier.tier-top {
+        width: 100px;
+        height: 40px;
+    }
+    .cake-tier.tier-mid {
+        width: 150px;
+        height: 50px;
+    }
+    .cake-tier.tier-bottom {
+        width: 205px;
+        height: 62px;
+    }
+    .cake-plate {
+        width: 245px;
+        height: 14px;
+    }
+    .cake-status {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+    }
+    .btn-blow {
+        padding: 12px 22px;
+        font-size: 0.92rem;
+        width: 100%;
+        max-width: 290px;
+    }
+    .section-heading {
+        font-size: 1.55rem;
+    }
+    .section-subheading {
+        font-size: 0.86rem;
+        margin-bottom: 22px;
+        padding: 0 8px;
+    }
+    .envelope-wrapper {
+        padding: 10px 0;
+    }
+    .envelope {
+        width: 280px;
+        height: 185px;
+        max-width: 88vw;
+    }
     .envelope-flap {
         border-left: 140px solid transparent;
         border-right: 140px solid transparent;
-        border-top: 95px solid #e65c78;
+        border-top: 92px solid #e65c78;
+    }
+    .wax-seal {
+        top: 80px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
     }
     .parchment-letter {
-        padding: 26px 18px;
+        padding: 24px 16px;
+        max-height: 82vh;
+        width: 95%;
     }
-    .letter-to { font-size: 1.8rem; }
+    .letter-to {
+        font-size: 1.6rem;
+    }
+    .letter-body {
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+    .letter-sign {
+        font-size: 1.45rem;
+    }
+    .balloons-field {
+        gap: 12px;
+        padding: 15px 4px;
+        min-height: 150px;
+    }
+    .balloon-sphere {
+        width: 50px;
+        height: 64px;
+    }
+    .balloon-string {
+        height: 30px;
+    }
+    .balloon-message-card {
+        font-size: 0.9rem;
+        padding: 12px 14px;
+        width: 95%;
+    }
+    .memories-grid {
+        grid-template-columns: 1fr;
+        max-width: 290px;
+        margin: 0 auto;
+        gap: 22px;
+    }
+    .polaroid-card {
+        padding: 12px 12px 18px 12px;
+    }
+    .polaroid-img-box {
+        height: 200px;
+    }
+    .polaroid-upload-btn {
+        opacity: 0.85; /* Always visible and tappable on touchscreens */
+        width: 36px;
+        height: 36px;
+    }
+    .gift-box {
+        width: 105px;
+        height: 105px;
+    }
+    .gift-opened-reward {
+        padding: 18px 14px;
+        width: 95%;
+    }
+    .reward-title {
+        font-size: 1.15rem;
+    }
+    .reward-desc {
+        font-size: 0.88rem;
+    }
+    .celebration-footer {
+        padding: 30px 12px 25px;
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .timer-container {
+        gap: 4px;
+    }
+    .timer-box {
+        min-width: 58px;
+        max-width: 68px;
+        padding: 10px 3px;
+    }
+    .timer-value {
+        font-size: 1.55rem;
+    }
+    .timer-label {
+        font-size: 0.55rem;
+    }
+    .timer-separator {
+        font-size: 1.1rem;
+    }
+    .cake-tier.tier-bottom { width: 175px; }
+    .cake-tier.tier-mid { width: 125px; }
+    .cake-tier.tier-top { width: 85px; }
+    .cake-plate { width: 205px; }
 }
