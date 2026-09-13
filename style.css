@@ -162,12 +162,21 @@ html, body {
     border-color: var(--accent-pink);
 }
 
-.btn-preview {
-    background: linear-gradient(135deg, rgba(255, 94, 142, 0.35), rgba(157, 78, 221, 0.35));
-    border-color: rgba(255, 94, 142, 0.5);
-}
-.btn-preview:hover {
-    background: linear-gradient(135deg, rgba(255, 94, 142, 0.6), rgba(157, 78, 221, 0.6));
+.live-clock-pill {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
 }
 
 .music-btn.active {

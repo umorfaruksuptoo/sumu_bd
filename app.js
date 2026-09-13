@@ -13,9 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Elements
     const countdownSection = document.getElementById('countdown-section');
     const celebrationSection = document.getElementById('celebration-section');
-    const btnPreview = document.getElementById('btn-preview');
     const btnMusic = document.getElementById('btn-music');
     const toast = document.getElementById('toast');
+
+    // Live Clock display for Current Time
+    function updateLiveClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        const strTime = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+
+        const elClockNav = document.getElementById('current-clock-nav');
+        const elClockHero = document.getElementById('current-clock-hero');
+        if (elClockNav) elClockNav.textContent = strTime;
+        if (elClockHero) elClockHero.textContent = strTime;
+    }
+    updateLiveClock();
 
     // Timer Elements
     const elHours = document.getElementById('hours');
@@ -89,8 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown();
+    function tick() {
+        updateLiveClock();
+        updateCountdown();
+    }
+    countdownInterval = setInterval(tick, 1000);
+    tick();
 
     // =========================================
     // TRANSITION TO CELEBRATION
@@ -106,34 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
             btnMusic.innerHTML = '<span>🎵</span> Playing Birthday Song';
         }
 
-        btnPreview.innerHTML = '<span>⏪</span> Back to Countdown';
         showToast("🎉 Happy Birthday Sumiya! 💖✨");
     }
 
-    function returnToCountdown() {
-        celebrationSection.classList.remove('active');
-        countdownSection.style.display = 'flex';
-        celebrationEngine.stopCelebration();
-
-        if (window.soundEngine) {
-            window.soundEngine.playAmbientMusic(true);
-            btnMusic.innerHTML = '<span>🎶</span> Ambient Music';
-        }
-
-        btnPreview.innerHTML = '<span>✨</span> Preview Midnight Reveal';
-        hasTriggeredCelebration = false;
-        showToast("Returned to Countdown mode");
-    }
-
-    // Toggle Preview / Test Mode
-    btnPreview.addEventListener('click', () => {
-        isPreviewMode = !isPreviewMode;
-        if (isPreviewMode) {
-            triggerMidnightCelebration();
-        } else {
-            returnToCountdown();
-        }
-    });
+    // Expose for testing if ever needed via console
+    window.triggerMidnightCelebration = triggerMidnightCelebration;
 
     // =========================================
     // MUSIC TOGGLE
